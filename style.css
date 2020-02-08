@@ -1,0 +1,26 @@
+@media only screen and (min-width: 360px){
+    header{
+        margin-bottom: 20%;
+    }
+    main{
+        margin-bottom: 65%;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    header{
+        margin-bottom: 10%;
+    }
+    main{
+        margin-bottom: 30%;
+    }
+}
+
+@media only screen and (min-width: 1280px){
+    header{
+        margin-bottom: 5%;
+    }
+    main{
+        margin-bottom: 15%;
+    }
+}
