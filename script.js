@@ -53,7 +53,7 @@ function moviereview(moviename) {
         //}
 
         var reviewDiv = $("<h4>" + "Reviews : " + "</h4>")
-        var reviewcontainer = $("reviewcontainer")
+        var reviewcontainer = $(".reviewcontainer")
         reviewcontainer.append(reviewDiv)
 
 
@@ -61,14 +61,17 @@ function moviereview(moviename) {
             var headlineDiv = $("<div>")
 
             headlineDiv.addClass("headline")
+            reviewcontainer.append(headlineDiv)
 
-            reviewcontainer.text(respone.results[i].headline);
+            headlineDiv.text(response.results[i].headline);
 
             var suggestedDiv = $("<div>")
 
             suggestedDiv.addClass("suggestedLink")
+            reviewcontainer.append(suggestedDiv)
 
-            reviewcontainer.text(respone.results[i].link.suggested_link_text);
+
+            suggestedDiv.text(response.results[i].link.suggested_link_text);
 
             var urlDiv = $("<div>")
 
@@ -76,7 +79,7 @@ function moviereview(moviename) {
 
             reviewcontainer.append(urlDiv)
 
-            urlDiv.text("<a href='" + response.results[i].link.url + "'>" + response.results[i].link.url + "</a>");
+            urlDiv.append("<a href='" + response.results[i].link.url + "'>" + response.results[i].link.url + "</a>");
 
 
         }
