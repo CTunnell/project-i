@@ -5,6 +5,9 @@ $("#searchButton").click(function (event) {
 
     var movie = $("#searchform");
     moviename = movie.val();
+
+    $(".reviewcontainer").empty();
+
     moviereview(moviename);
 
 
@@ -46,7 +49,7 @@ function moviereview(moviename) {
         numberOfReview = length
         }
         console.log(numberOfReview);
-        
+
         var reviewDiv = $("<h4>" + "Reviews : " + "</h4>")
         var reviewcontainer = $(".reviewcontainer")
         reviewcontainer.append(reviewDiv)
