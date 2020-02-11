@@ -35,13 +35,7 @@ function moviereview(moviename) {
         }).then(function (response) {
         console.log(response)
 
-        console.log(response.results[0].headline)
-
-        console.log(response.results[0].link.suggested_link_text)
-        console.log(response.results[0].link.url)
-
-
-
+       
         // set number of review to five   
         var numberOfReview = 5
         console.log(response.results.length)
@@ -51,7 +45,8 @@ function moviereview(moviename) {
         if (numberOfReview > length) {
         numberOfReview = length
         }
-
+        console.log(numberOfReview);
+        
         var reviewDiv = $("<h4>" + "Reviews : " + "</h4>")
         var reviewcontainer = $(".reviewcontainer")
         reviewcontainer.append(reviewDiv)
