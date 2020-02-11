@@ -45,12 +45,12 @@ function moviereview(moviename) {
         // set number of review to five   
         var numberOfReview = 5
         console.log(response.results.length)
-        // var length = response.results.length;
+        var length = response.results.length;
 
         // set number of review equal to lenght if there are less than 5 reviews
-        //if (numberOfReview > length) {
-        //numberOfReview = length
-        //}
+        if (numberOfReview > length) {
+        numberOfReview = length
+        }
 
         var reviewDiv = $("<h4>" + "Reviews : " + "</h4>")
         var reviewcontainer = $(".reviewcontainer")
@@ -58,17 +58,22 @@ function moviereview(moviename) {
 
 
         for (var i = 0; i < numberOfReview; i++) {
+
+            var articlecontainer = $("<div>")
+            articlecontainer.addClass("article")
+            reviewcontainer.append(articlecontainer)
+
             var headlineDiv = $("<div>")
 
             headlineDiv.addClass("headline")
-            reviewcontainer.append(headlineDiv)
+            articlecontainer.append(headlineDiv)
 
             headlineDiv.text(response.results[i].headline);
 
             var suggestedDiv = $("<div>")
 
             suggestedDiv.addClass("suggestedLink")
-            reviewcontainer.append(suggestedDiv)
+            articlecontainer.append(suggestedDiv)
 
 
             suggestedDiv.text(response.results[i].link.suggested_link_text);
@@ -77,7 +82,7 @@ function moviereview(moviename) {
 
             urlDiv.addClass("url")
 
-            reviewcontainer.append(urlDiv)
+            articlecontainer.append(urlDiv)
 
             urlDiv.append("<a href='" + response.results[i].link.url + "'>" + response.results[i].link.url + "</a>");
 
