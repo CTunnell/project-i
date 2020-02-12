@@ -2,12 +2,16 @@
     font-family: 'Lily Script One', cursive;
 }
 
+.brand-logo{
+    font-family: 'Lily Script One', cursive;
+}
+
 @media only screen and (min-width: 360px){
     header{
         margin-bottom: 20%;
     }
     main{
-        margin-bottom: 65%;
+        margin-bottom: 55%;
     }
 }
 
@@ -16,7 +20,7 @@
         margin-bottom: 10%;
     }
     main{
-        margin-bottom: 30%;
+        margin-bottom: 25%;
     }
 }
 

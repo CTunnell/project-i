@@ -3,12 +3,20 @@ $(document).ready(function(){
 console.log($);
 var searcher= $(".searcher");
 var field= $("#search-input");
-var bookbin= $("#after-press-book")
-var moviebin=$("#after-press-movie")
+var bookbin= $("#after-press-book");
+var moviebin=$("#after-press-movie");
+
 searcher.on("click", function(){
 $("main").remove();
 bookmaker();
 moviemaker();
+});
+
+$("#search").on("submit", function(){
+    $("main").remove();
+    bookmaker();
+    moviemaker();
+    $("#text-search").val("");
 });
 
 function bookmaker(){
