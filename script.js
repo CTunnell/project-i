@@ -12,6 +12,7 @@ bookmaker();
 moviemaker();
 });
 
+//eventlistener used to function with the navbar
 $("#search").on("submit", function(){
     $("main").remove();
     bookmaker();
@@ -19,6 +20,7 @@ $("#search").on("submit", function(){
     $("#text-search").val("");
 });
 
+//rough shot code meant to demenstrate how to create the needed card containers
 function bookmaker(){
     var cardbody= $("<div>");
     cardbody.attr("class", "card");
