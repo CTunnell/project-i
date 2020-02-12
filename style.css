@@ -1,3 +1,7 @@
+#splash-title{
+    font-family: 'Lily Script One', cursive;
+}
+
 @media only screen and (min-width: 360px){
     header{
         margin-bottom: 20%;
