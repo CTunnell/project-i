@@ -64,9 +64,58 @@ function getmovie(moviename) {
         console.log(response.Poster)
 
         
-        var reviewDiv = $("<h4>" + "Movie : " + "</h4>")
+        var moviecontainer = $("<h5>" + "Movie : " + "</h5>")
         var reviewcontainer = $(".reviewcontainer")
-        reviewcontainer.append(reviewDiv)
+        reviewcontainer.append(moviecontainer)
+
+
+          var movieDiv = $("<div>")
+          movieDiv.addClass("movie")
+          reviewcontainer.append(movieDiv)
+
+
+        // Display title
+
+        var titleDiv = $("<div>")
+        titleDiv.addClass("Title")
+        movieDiv.append(titleDiv)
+        titleDiv.text(response.Title);
+
+        // Display year
+
+        var yearDiv = $("<div>")
+        yearDiv.addClass("Year")
+        movieDiv.append(yearDiv)
+        yearDiv.text(response.Year);
+
+        // Display Plot
+        var plotDiv = $("<div>")
+        plotDiv.addClass("Plot")
+        movieDiv.append(plotDiv)
+        plotDiv.text("Plot: "+response.Plot);
+
+
+
+        // Generate Critics Ratings
+
+        var arrLength = response.Ratings.length
+        console.log(arrLength)
+        for ( var i=0 ; i < arrLength ; i++) {
+
+        var ratingDiv = $("<div>")
+        ratingDiv.addClass("Rating")
+        movieDiv.append(ratingDiv)
+        ratingDiv.text(response.Ratings[i].Source + " : Critics  " + response.Ratings[i].Value);
+       
+        }
+             
+
+       
+        // add movie poster image
+        var posterURL = response.Poster;
+        var poster = $("<img>")
+        poster.attr("src", posterURL);
+        movieDiv.append(poster);
 
         
         
