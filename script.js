@@ -1,17 +1,9 @@
+// Cors-anywhere.herokuapp.com
 
-$("#searchButton").click(function (event) {
-
-    event.preventDefault();
-
-    var movie = $("#searchform");
-    moviename = movie.val();
-
-    $(".reviewcontainer").empty();
-
-    moviereview(moviename);
-
-
-
+jQuery.ajaxPrefilter(function (options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
 });
 
 
@@ -27,21 +19,9 @@ $("#searchomdb").click(function (event) {
     getmovie(moviename);
 
 
-
-
-
 });
 
 
-
-
-// Cors-anywhere.herokuapp.com
-
-jQuery.ajaxPrefilter(function (options) {
-    if (options.crossDomain && jQuery.support.cors) {
-        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-    }
-});
 
 // Get movie info from OMDB
 
@@ -118,13 +98,17 @@ function getmovie(moviename) {
         var title = response.Title
         var year = response.Year
         console.log(title)
-        movieYearreview(title, year)
+
+        // get movie review from NYTime 
+        movieYearreview(title)
         
 
     });
    
 
 }
+
+// Get movie from NTY time
 
 function movieYearreview(title) {
 
@@ -152,6 +136,8 @@ function movieYearreview(title) {
 
         for (var i = 0; i < length; i++) {
             console.log(title)
+            
+        // Check if aricle year is from the same as movie
 
             if ( title == response.results[i].display_title) {
             
@@ -185,72 +171,6 @@ function movieYearreview(title) {
             
         }
     }
-
-   });
-
-}
-
-// Look up movie review give movie name from form
-
-function moviereview(moviename) {
-
-    var getURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" + moviename + "&api-key=te0rQgoM9vfhltspkKfvFU0wZcAzmRL2"
-
-
-    $.ajax({
-        url: getURL,
-        method: 'GET'
-        }).then(function (response) {
-        console.log(response)
-
-       
-        // set number of review to five   
-        var numberOfReview = 10
-        console.log(response.results.length)
-        var length = response.results.length;
-
-        // set number of review equal to lenght if there are less than 5 reviews
-        if (numberOfReview > length) {
-        numberOfReview = length
-        }
-        console.log(numberOfReview);
-
-        var reviewDiv = $("<h4>" + "Reviews : " + "</h4>")
-        var reviewcontainer = $(".reviewcontainer")
-        reviewcontainer.append(reviewDiv)
-
-
-        for (var i = 0; i < numberOfReview; i++) {
-
-            var articlecontainer = $("<div>")
-            articlecontainer.addClass("article")
-            reviewcontainer.append(articlecontainer)
-
-            var headlineDiv = $("<div>")
-
-            headlineDiv.addClass("headline")
-            articlecontainer.append(headlineDiv)
-
-            headlineDiv.text(response.results[i].headline);
-
-            var suggestedDiv = $("<div>")
-
-            suggestedDiv.addClass("suggestedLink")
-            articlecontainer.append(suggestedDiv)
-
-
-            suggestedDiv.text(response.results[i].link.suggested_link_text);
-
-            var urlDiv = $("<div>")
-
-            urlDiv.addClass("url")
-
-            articlecontainer.append(urlDiv)
-
-            urlDiv.append("<a href='" + response.results[i].link.url + "'>" + response.results[i].link.url + "</a>");
-
-
-        }
 
    });
 
