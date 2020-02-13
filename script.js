@@ -109,15 +109,16 @@ function getmovie(moviename) {
        
         }
              
-
-       
         // add movie poster image
         var posterURL = response.Poster;
         var poster = $("<img>")
         poster.attr("src", posterURL);
         movieDiv.append(poster);
 
-        
+        var title = response.Title
+        var year = response.Year
+        console.log(title)
+        movieYearreview(title, year)
         
 
     });
@@ -125,6 +126,69 @@ function getmovie(moviename) {
 
 }
 
+function movieYearreview(title) {
+
+    console.log(title)
+    var getURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" + title + "&api-key=te0rQgoM9vfhltspkKfvFU0wZcAzmRL2"
+
+
+    $.ajax({
+        url: getURL,
+        method: 'GET'
+        }).then(function (response) {
+        console.log(response)
+
+       
+        // get review date   
+        
+        console.log(response.results.length)
+        var length = response.results.length;
+
+        
+        
+        
+        
+        var reviewcontainer = $(".reviewcontainer")
+
+        for (var i = 0; i < length; i++) {
+            console.log(title)
+
+            if ( title == response.results[i].display_title) {
+            
+            var articlecontainer = $("<div>")
+            articlecontainer.addClass("article")
+            reviewcontainer.append(articlecontainer)
+
+            var headlineDiv = $("<div>")
+
+            headlineDiv.addClass("headline")
+            articlecontainer.append(headlineDiv)
+
+            headlineDiv.text(response.results[i].headline);
+
+            var suggestedDiv = $("<div>")
+
+            suggestedDiv.addClass("suggestedLink")
+            articlecontainer.append(suggestedDiv)
+
+
+            suggestedDiv.text(response.results[i].link.suggested_link_text);
+
+            var urlDiv = $("<div>")
+
+            urlDiv.addClass("url")
+
+            articlecontainer.append(urlDiv)
+
+            urlDiv.append("<a href='" + response.results[i].link.url + "'>" + response.results[i].link.url + "</a>");
+
+            
+        }
+    }
+
+   });
+
+}
 
 // Look up movie review give movie name from form
 
