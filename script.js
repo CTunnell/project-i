@@ -7,11 +7,11 @@ jQuery.ajaxPrefilter(function (options) {
 });
 
 
-$("#searchomdb").click(function (event) {
+$("#search").click(function (event) {
 
     event.preventDefault();
 
-    var movie = $("#searchform");
+    var movie = $("#search-input");
     moviename = movie.val();
 
     $(".reviewcontainer").empty();
