@@ -15,6 +15,25 @@ $("#searchButton").click(function (event) {
 });
 
 
+$("#searchomdb").click(function (event) {
+
+    event.preventDefault();
+
+    var movie = $("#searchform");
+    moviename = movie.val();
+
+    $(".reviewcontainer").empty();
+
+    getmovie(moviename);
+
+
+
+
+
+});
+
+
+
 
 // Cors-anywhere.herokuapp.com
 
@@ -23,6 +42,39 @@ jQuery.ajaxPrefilter(function (options) {
         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
     }
 });
+
+// Get movie info from OMDB
+
+function getmovie(moviename) {
+
+    var getURL ="http://www.omdbapi.com/?t="+moviename+"&apikey=5acb189"
+    
+     
+    $.ajax({
+        url: getURL,
+        method: 'GET'
+        }).then(function (response) {
+        console.log(response)
+        console.log(response.Title)
+        console.log(response.Year)
+        console.log(response.Plot)
+        console.log(response.Ratings[0])
+        console.log(response.Ratings[1])
+        console.log(response.Ratings[2])
+        console.log(response.Poster)
+
+        
+        var reviewDiv = $("<h4>" + "Movie : " + "</h4>")
+        var reviewcontainer = $(".reviewcontainer")
+        reviewcontainer.append(reviewDiv)
+
+        
+        
+
+    });
+   
+
+}
 
 
 // Look up movie review give movie name from form
@@ -40,7 +92,7 @@ function moviereview(moviename) {
 
        
         // set number of review to five   
-        var numberOfReview = 5
+        var numberOfReview = 10
         console.log(response.results.length)
         var length = response.results.length;
 
