@@ -7,6 +7,7 @@ var bookbin= $("#after-press-book");
 var moviebin=$("#after-press-movie");
 
 searcher.on("click", function(){
+event.preventDefault();
 $("main").remove();
 bookmaker();
 moviemaker();
