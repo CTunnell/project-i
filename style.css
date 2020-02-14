@@ -6,6 +6,11 @@
     font-family: 'Lily Script One', cursive;
 }
 
+.card-image{
+    height: 15%;
+    width: 25%;
+}
+
 @media only screen and (min-width: 360px){
     header{
         margin-bottom: 20%;
@@ -13,6 +18,7 @@
     main{
         margin-bottom: 55%;
     }
+
 }
 
 @media only screen and (min-width: 768px){
@@ -31,4 +37,5 @@
     main{
         margin-bottom: 10%;
     }
+
 }
