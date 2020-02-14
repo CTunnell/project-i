@@ -25,19 +25,17 @@ $(document).ready(function () {
         event.preventDefault();
         moviename = textinput.val()
 
-        moviename = textinput.val()
-
         keyword = textinput.val().trim()
 
         moviebin.empty();
         getmovie(moviename)
 
-        textinput.val("");
         bookbin.empty();
 
         bookmaker(keyword);
 
 
+        textinput.val("");
     });
 
 
