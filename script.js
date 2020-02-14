@@ -6,15 +6,47 @@ jQuery.ajaxPrefilter(function (options) {
     }
 });
 
+$(document).ready(function(){
 
-$(".searcher").on("click", function (event) {
+    console.log($);
+    // main button
+    var searcher= $(".searcher");
+
+    var field= $("#search-input");
+    
+    var moviebin=$("#after-press-movie");
+
+    var textinput =$("#text-search")
+    
+   
+    
+    //eventlistener used to function with the navbar
+    $("#search").on("submit", function(event){
+        event.preventDefault();
+        $("main").remove();
+        moviename=textinput.val()
+        
+        moviebin.empty();
+        getmovie(moviename)
+
+        textinput.val("");
+
+    
+
+    });
+    
+    
+   
+    
+  searcher.on("click", function (event) {
 
     event.preventDefault();
+    $("main").remove();
 
-    var movie = $("#search-input");
-    moviename = movie.val();
+    
+    moviename = field.val();
 
-    $("#after-press-movie").empty();
+    moviebin.empty();
 
     getmovie(moviename);
 
@@ -45,13 +77,13 @@ function getmovie(moviename) {
 
         
         var moviecontainer = $("<h5>" + "Movie : " + "</h5>")
-        var reviewcontainer = $("#after-press-movie")
-        reviewcontainer.append(moviecontainer)
+      
+        moviebin.append(moviecontainer)
 
 
           var movieDiv = $("<div>")
           movieDiv.addClass("movie")
-          reviewcontainer.append(movieDiv)
+          moviebin.append(movieDiv)
 
 
         // Display title
@@ -139,7 +171,7 @@ function movieYearreview(title) {
         
         
         
-        var reviewcontainer = $("#after-press-movie")
+      
 
         for (var i = 0; i < length; i++) {
             console.log(title)
@@ -150,7 +182,7 @@ function movieYearreview(title) {
             
             var articlecontainer = $("<div>")
             articlecontainer.addClass("article")
-            reviewcontainer.append(articlecontainer)
+            moviebin.append(articlecontainer)
 
             var headlineDiv = $("<div>")
 
@@ -183,3 +215,4 @@ function movieYearreview(title) {
 
 }
 
+});
