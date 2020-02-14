@@ -61,6 +61,13 @@ function getmovie(moviename) {
         movieDiv.append(titleDiv)
         titleDiv.text(response.Title);
 
+        // Display Rated
+
+        var ratedDiv = $("<div>")
+        ratedDiv.addClass("Year")
+        movieDiv.append(ratedDiv)
+        ratedDiv.text("Rated : " +response.Rated);
+
         // Display year
 
         var yearDiv = $("<div>")
