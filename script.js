@@ -102,80 +102,50 @@ $(document).ready(function () {
             info.append(title);
 
             // get movie review from NYTime 
-            // movieYearreview(movietitle)
+           // movieYearreview(movietitle)
+           var reviewURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" +movietitle+ "&api-key=te0rQgoM9vfhltspkKfvFU0wZcAzmRL2"
 
               // Get movie from NTY time
-
-    function movieYearreview(movietitle) {
-
-        console.log(movietitle)
-        var getURL = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=" +movietitle+ "&api-key=te0rQgoM9vfhltspkKfvFU0wZcAzmRL2"
-
-
-        $.ajax({
-            url: getURL,
-            method: 'GET'
-        }).then(function (response) {
-            console.log(response)
-
+              $.ajax({
+                url: reviewURL,
+                method: 'GET'
+            }).then(function (response) {
+                console.log(response)
+    
+    
+                
+    
+                console.log(response.results.length)
+                var length = response.results.length;
+    
+    
+                for (var i = 0; i < length; i++) {
+                    console.log(movietitle)
+    
+                    // Check if article title is from the same as the movie
+    
+                    if (movietitle == response.results[i].display_title) {
+    
+                        
+                        
+                        var linktext = $("<p>");
+                        var linkfun = $("<a>");
+                        linktext.append(linkfun);
+                        ///for your review link
+                        console.log(linkfun)
+                        console.log(response.results[i].link.url)
+                        linkfun.attr("href", response.results[i].link.url);
+                        ///for your movie title
+                        linkfun.text("Review");
+                        info.append(linktext);
+                      
+    
+                    }
+                }
+    
+            });
 
             
-
-            console.log(response.results.length)
-            var length = response.results.length;
-
-
-            for (var i = 0; i < length; i++) {
-                console.log(movietitle)
-
-                // Check if article title is from the same as the movie
-
-                if (movietitle == response.results[i].display_title) {
-
-                    var articlecontainer = $("<div>")
-                    articlecontainer.addClass("article")
-                    moviebin.append(articlecontainer)
-
-                    var headlineDiv = $("<div>")
-
-                    headlineDiv.addClass("headline")
-                    articlecontainer.append(headlineDiv)
-
-                    headlineDiv.text(response.results[i].headline);
-
-                    var suggestedDiv = $("<div>")
-
-                    suggestedDiv.addClass("suggestedLink")
-                    articlecontainer.append(suggestedDiv)
-
-
-                    suggestedDiv.text(response.results[i].link.suggested_link_text);
-
-                    var urlDiv = $("<div>")
-
-                    urlDiv.addClass("url")
-
-                    articlecontainer.append(urlDiv)
-
-                    urlDiv.append("<a href='" + response.results[i].link.url + "'>" + response.results[i].link.url + "</a>");
-
-                  
-
-                }
-            }
-
-        });
-
-    }
-
-            var linktext = $("<p>");
-            var linkfun = $("<a>");
-            linktext.append(linkfun);
-            ///for your review link
-            linkfun.attr("href", "");
-            ///for your movie title
-            linkfun.text("Hyperlink");
-            info.append(linktext);
 
             ///for your movie title
             var hiddencard = $("<div>");
@@ -245,7 +215,5 @@ $(document).ready(function () {
 
 
     }
-
-  
-
+    
 });
