@@ -78,7 +78,7 @@ function moviemaker(){
     var image= $("<img>");
     image.attr("class", "activator");
     image.attr("src", "");
-    image.attr("alt", "broken image");
+    image.attr("alt", "broken poster");
     cardeffect.append(image);
 
     var info= $("<div>");
