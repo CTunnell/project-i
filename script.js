@@ -24,7 +24,6 @@ $(document).ready(function () {
     $("#search").on("submit", function (event) {
         event.preventDefault();
         moviename = textinput.val()
-        $("main").remove();
 
         moviename = textinput.val()
 
