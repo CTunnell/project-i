@@ -1,33 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-    <title>getMedia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>get media</title>
 </head>
 
 <body>
-    <div class="formcontainer">
-  <h3> Search for a movie</h3>
-  <form class="form-inline my-2 my-lg-0">
+<header>
+    <nav>
+        <div class="nav-wrapper grey darken-2">
+            <a href="#" class="brand-logo">Get Media</a>
+          <form id="search">
+            <div class="input-field right">
+              <input type="search" id="text-search">
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            </div>
+          </form>
+        </div>
+      </nav>
+</header>
 
-    <input class="form-control sm-2" type="search" id="search-input" aria-label="Search">
-    
-    <button class="btn btn-outline-success my-2 my-sm-0" id="search"><i class="fa fa-search"
-          aria-hidden="true"></i></button>
-  </form>
-    <br>
-    <div id="after-press-movie"></div>
+<main>
+    <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <H1 class="center-align" id="splash-title">Get Media</H1>
+                    <div class="input-field">
+                        <input type="search" name="Search" id="search-input">
+                        <label for="search">
+                            Can I watch it Instead?
+                    </label>
+<div class="section"></div>
+                    <div class="center-align">
+                    <input type="button" class= "btn waves-effect waves-light searcher" value="search">
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+</main>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class="container">
+    <div class="row">
+        <div class="col s6" id="after-press-book">
 
-<script src="script.js" ></script>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        </div>
+        <div class="col s6" id="after-press-movie">
+
+        </div>
+    </div>
+</div>
+
+<div class="page-footer grey darken-2">
+<div class="section"></div>    
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

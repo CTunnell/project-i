@@ -7,7 +7,7 @@ jQuery.ajaxPrefilter(function (options) {
 });
 
 
-$("#search").click(function (event) {
+$(".searcher").on("click", function (event) {
 
     event.preventDefault();
 

@@ -1,8 +1,34 @@
-.article{
-margin-top: 20px;
-margin-bottom: 20px;
-background-color: azure;
-padding: 10px;
+#splash-title{
+    font-family: 'Lily Script One', cursive;
+}
 
+.brand-logo{
+    font-family: 'Lily Script One', cursive;
+}
 
+@media only screen and (min-width: 360px){
+    header{
+        margin-bottom: 20%;
+    }
+    main{
+        margin-bottom: 55%;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    header{
+        margin-bottom: 10%;
+    }
+    main{
+        margin-bottom: 25%;
+    }
+}
+
+@media only screen and (min-width: 1280px){
+    header{
+        margin-bottom: 5%;
+    }
+    main{
+        margin-bottom: 10%;
+    }
 }
