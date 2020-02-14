@@ -1,6 +1,7 @@
+<<<<<<< HEAD
 $(document).ready(function () {
 
-    //console.log($);
+    console.log($);
     var searcher = $(".searcher");
     var field = $("#search-input");
 
@@ -145,6 +146,24 @@ $(document).ready(function () {
         cardbody.append(info);
         cardbody.append(hiddencard);
         moviebin.append(cardbody);
-    }
+
+
+console.log($);
+var searcher= $(".searcher");
+var field= $("#search-input");
+var bookbin= $("#after-press-book");
+var moviebin=$("#after-press-movie");
+
+searcher.on("click", function(){
+$("main").remove();
+});
+
+//eventlistener used to function with the navbar
+$("#search").on("submit", function(){
+    $("main").remove();
+    $("#text-search").val("");
+});
+
+>>>>>>> ebc327cecffd41fd18f0c7598feb73ef8becdab0
 
 });
