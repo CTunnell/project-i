@@ -25,12 +25,13 @@ $(document).ready(function(){
         event.preventDefault();
         $("main").remove();
         moviename=textinput.val()
-        
+
+        keyword = textinput.val().trim()
         moviebin.empty();
         getmovie(moviename)
 
         textinput.val("");
-
+        bookmaker(keyword);
     
 
     });
@@ -45,10 +46,14 @@ $(document).ready(function(){
 
     
     moviename = field.val();
+    
+    keyword = field.val().trim();
 
     moviebin.empty();
 
     getmovie(moviename);
+    
+    bookmaker(keyword);
 
 
 });
@@ -215,4 +220,65 @@ function movieYearreview(title) {
 
 }
 
-});
+function bookmaker(keyword) {
+
+    var url = "https://api.nytimes.com/svc/books/v3/reviews.json?title=" + keyword + "&api-key=Pj4xmspyjkUbgyf0JQG8gXekbgTLhcAN"
+    $.ajax({
+        url: url,
+        method: "GET"
+    })
+        .then(function (response) {
+            console.log(keyword)
+            console.log(response)
+            console.log(response.results[0].url)
+            console.log(response.results[0].summary)
+
+
+            var cardbody = $("<div>");
+            cardbody.attr("class", "card");
+
+
+            var cardeffect = $("<div>");
+            cardeffect.attr("class", "card-image waves-effect waves-block waves-light")
+            /* var image= $("<img>");
+             image.attr("class", "activator");
+             image.attr("src", "");
+             image.attr("alt", "broken image");
+             cardeffect.append(image); */
+
+            var info = $("<div>");
+            info.attr("class", "card-content");
+            var title = $("<span>");
+            title.attr("class", "card-title activator grey-text text-darken-4")
+            title.text(response.results[0].book_title)
+            info.append(title);
+
+            var linktext = $("<p>");
+            var linkfun = $("<a>");
+            linktext.append(linkfun);
+            linkfun.attr("href", response.results[0].url);
+            linkfun.text(response.results[0].book_title + " (Review)");
+            info.append(linktext);
+
+            var hiddencard = $("<div>");
+            hiddencard.attr("class", "card-reveal");
+            var hiddentitle = $("<span>");
+            hiddentitle.attr("class", "card-title grey-text text-darken-4");
+            hiddentitle.text(response.results[0].book_title);
+            var hiddenicon = $("<i>");
+            hiddenicon.attr("class", "material-icons right");
+            hiddenicon.text("close");
+            hiddentitle.append(hiddenicon);
+            hiddencard.append(hiddentitle);
+            var hiddentext = $("<p>");
+            hiddentext.text(response.results[0].summary);
+            hiddencard.append(hiddentext);
+
+            cardbody.append(cardeffect);
+            cardbody.append(info);
+            cardbody.append(hiddencard);
+            bookbin.append(cardbody);
+        });
+
+
+}
