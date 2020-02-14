@@ -14,6 +14,7 @@ moviemaker();
 
 //eventlistener used to function with the navbar
 $("#search").on("submit", function(){
+    event.preventDefault();
     $("main").remove();
     bookmaker();
     moviemaker();
