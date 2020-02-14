@@ -8,12 +8,15 @@ var moviebin=$("#after-press-movie");
 
 searcher.on("click", function(){
 $("main").remove();
-
+bookmaker();
+moviemaker();
 });
 
 //eventlistener used to function with the navbar
 $("#search").on("submit", function(){
     $("main").remove();
+    bookmaker();
+    moviemaker();
     $("#text-search").val("");
 });
 
