@@ -23,6 +23,7 @@ $("#search").on("submit", function(){
 
 //rough shot code meant to demenstrate how to create the needed card containers
 function bookmaker(){
+/// only focus on the indented code
     var cardbody= $("<div>");
     cardbody.attr("class", "card");
     
@@ -31,7 +32,8 @@ function bookmaker(){
     cardeffect.attr("class", "card-image waves-effect waves-block waves-light")
     var image= $("<img>");
     image.attr("class", "activator");
-    image.attr("src", "");
+/// for your movie or book image
+        image.attr("src", "");
     image.attr("alt", "broken image");
     cardeffect.append(image);
 
@@ -39,27 +41,32 @@ function bookmaker(){
     info.attr("class", "card-content");
     var title= $("<span>");
     title.attr("class", "card-title activator grey-text text-darken-4")
-    title.text("Card Title")
+/// for your book or movie title 
+        title.text("Card Title")
     info.append(title);
 
     var linktext= $("<p>");
     var linkfun= $("<a>");
     linktext.append(linkfun);
-    linkfun.attr("href", "");
-    linkfun.text("Hyperlink");
+/// for your book or movie review
+        linkfun.attr("href", "");
+/// for your book or movie title
+        linkfun.text("Hyperlink");
     info.append(linktext);
 
     var hiddencard= $("<div>");
     hiddencard.attr("class", "card-reveal");
     var hiddentitle= $("<span>");
     hiddentitle.attr("class", "card-title grey-text text-darken-4");
-    hiddentitle.text("Card Title");
+/// for you book or movie title 
+        hiddentitle.text("Card Title");
     var hiddenicon= $("<i>");
     hiddenicon.attr("class", "material-icons right");
     hiddenicon.text("close");
     hiddentitle.append(hiddenicon);
     hiddencard.append(hiddentitle);
     var hiddentext= $("<p>");
+/// for your book or movie plot or summary
     hiddentext.text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
     hiddencard.append(hiddentext);
     
