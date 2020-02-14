@@ -14,7 +14,7 @@ $("#search").click(function (event) {
     var movie = $("#search-input");
     moviename = movie.val();
 
-    $(".reviewcontainer").empty();
+    $("#after-press-movie").empty();
 
     getmovie(moviename);
 
@@ -45,7 +45,7 @@ function getmovie(moviename) {
 
         
         var moviecontainer = $("<h5>" + "Movie : " + "</h5>")
-        var reviewcontainer = $(".reviewcontainer")
+        var reviewcontainer = $("#after-press-movie")
         reviewcontainer.append(moviecontainer)
 
 
@@ -132,12 +132,12 @@ function movieYearreview(title) {
         
         
         
-        var reviewcontainer = $(".reviewcontainer")
+        var reviewcontainer = $("#after-press-movie")
 
         for (var i = 0; i < length; i++) {
             console.log(title)
             
-        // Check if aricle year is from the same as movie
+        // Check if article title is from the same as the movie
 
             if ( title == response.results[i].display_title) {
             
